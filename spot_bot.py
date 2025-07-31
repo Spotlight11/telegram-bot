@@ -1,3 +1,5 @@
+#import telegram
+#print(telegram.__version__)
 import logging
 from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup
 from telegram.ext import Application, CommandHandler, ContextTypes, CallbackQueryHandler
@@ -23,7 +25,7 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
 
 # Обработчик команды /order
 async def order(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
-    phone_number = "+7 123 456 78 90"  # Замени на реальный номер телефона
+    phone_number = "8 (965) 003-94-73"  # Замени на реальный номер телефона
     await update.message.reply_text(
         f"Для заказа свяжитесь по телефону: {phone_number}"
     )
@@ -46,10 +48,11 @@ async def error_handler(update: Update, context: ContextTypes.DEFAULT_TYPE) -> N
         await update.message.reply_text("Произошла ошибка, попробуй снова!")
 
 # Основная функция для запуска бота
+
 def main() -> None:
     # Вставь сюда свой токен от @BotFather
-    TOKEN = "8227558619:AAFnjeVMKSpjeMmNdTo32LbTXMe7YQKfYYg"
-    
+    import os
+    TOKEN = os.environ.get("BOT_TOKEN")
     # Создаем приложение
     application = Application.builder().token(TOKEN).build()
 
