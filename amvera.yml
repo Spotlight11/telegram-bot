@@ -1,3 +1,0 @@
-type: python
-python_version: 3.12
-command: python spot_bot.py
