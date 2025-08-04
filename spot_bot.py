@@ -16,21 +16,21 @@ logger = logging.getLogger(__name__)
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     keyboard = [
         [InlineKeyboardButton("Перейти в канал", url="https://t.me/spot_light_ekb")],  # Замени на ссылку на твой канал
-        [InlineKeyboardButton("Сделать заказ", callback_data="order")],  # Кнопка вызывает команду заказа
+        [InlineKeyboardButton("Сделать заказ", url="https://t.me/@kindpinapple")]
+,  # Кнопка вызывает команду заказа
         [InlineKeyboardButton("Ознакомиться с материалом", url="https://спотлайт.рф/price1/")],  # Замени на ссылку на материалы
     ]
     reply_markup = InlineKeyboardMarkup(keyboard)
     await update.message.reply_text(
-        "Добро пожаловать! Я бот твоего проекта. Выбери действие ниже:",
+        "Добро пожаловать! Я бот магазина СПОТЛАЙТ:",
         reply_markup=reply_markup
     )
 
 # Обработчик команды /order
-async def order(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
-    phone_number = "8 (965) 003-94-73"  # Замени на реальный номер телефона
-    await update.message.reply_text(
-        f"Для заказа свяжитесь по телефону: {phone_number}"
-    )
+#async def order(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
+    #await update.message.reply_text(
+        #f"Для заказа свяжитесь по телефону: {phone_number}"
+    #)
 
 # Обработчик нажатий на инлайн-кнопки
 async def button_callback(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
@@ -61,7 +61,7 @@ def main() -> None:
 
     # Регистрируем обработчики команд
     application.add_handler(CommandHandler("start", start))
-    application.add_handler(CommandHandler("order", order))
+    #application.add_handler(CommandHandler("order", order))
     
     # Регистрируем обработчик инлайн-кнопок
     application.add_handler(CallbackQueryHandler(button_callback))
