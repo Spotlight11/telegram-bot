@@ -1,0 +1,12 @@
+meta:
+  environment: python
+  toolchain:
+    name: pip
+    version: "3.12"
+build:
+  requirementsPath: Spotlight_Bot/requirements.txt
+run:
+  scriptName: spot_bot.py
+  command: python spot_bot.py
+  persistenceMount: /data
+  containerPort: "80"
