@@ -6,7 +6,7 @@ meta:
 build:
   requirementsPath: Spotlight_Bot/requirements.txt
 run:
-  scriptName: spot_bot.py
-  command: python spot_bot.py
+  scriptName: app.py
+  command: null
   persistenceMount: /data
   containerPort: "80"
