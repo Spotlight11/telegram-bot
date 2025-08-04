@@ -1,5 +1,7 @@
 #import telegram
 #print(telegram.__version__)
+from dotenv import load_dotenv
+import os
 import logging
 from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup
 from telegram.ext import Application, CommandHandler, ContextTypes, CallbackQueryHandler
@@ -51,8 +53,10 @@ async def error_handler(update: Update, context: ContextTypes.DEFAULT_TYPE) -> N
 
 def main() -> None:
     # Вставь сюда свой токен от @BotFather
-    import os
-    TOKEN = os.environ.get("BOT_TOKEN")
+    def main() -> None:
+        load_dotenv()
+        TOKEN = os.getenv("BOT_TOKEN")
+        application = Application.builder().token(TOKEN).build()
     # Создаем приложение
     application = Application.builder().token(TOKEN).build()
 
