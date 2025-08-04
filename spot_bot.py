@@ -53,10 +53,9 @@ async def error_handler(update: Update, context: ContextTypes.DEFAULT_TYPE) -> N
 
 def main() -> None:
     # Вставь сюда свой токен от @BotFather
-    def main() -> None:
-        load_dotenv()
-        TOKEN = os.getenv("BOT_TOKEN")
-        application = Application.builder().token(TOKEN).build()
+    load_dotenv()
+    TOKEN = os.getenv("BOT_TOKEN")
+    application = Application.builder().token(TOKEN).build()
     # Создаем приложение
     application = Application.builder().token(TOKEN).build()
 
